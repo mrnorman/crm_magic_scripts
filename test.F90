@@ -22,8 +22,8 @@
 #elif (defined _OPENMP45)
 
 #define _dir $omp
-#define _din(...)     map(to:__VA_ARGS__)
-#define _dout(...)    map(from:__VA_ARGS__)
+#define _din(...)     map(to:__VA_ARGS__)      depend(out:__VA_ARGS__)
+#define _dout(...)    map(from:__VA_ARGS__)    depend(in:__VA_ARGS__)
 #define _dcreate(...) map(alloc:__VA_ARGS__)   depend(out:__VA_ARGS__)
 #define _ddelete(...) map(release:__VA_ARGS__) depend(in:__VA_ARGS__)
 #define _kin(...)     map(to:__VA_ARGS__)      depend(in:__VA_ARGS__)
