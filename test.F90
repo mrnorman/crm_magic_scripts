@@ -61,7 +61,7 @@
 
 #else
 
-#define _dir $omp
+#define _dir nodirective
 #define _din(...)     
 #define _dout(...)    
 #define _dcreate(...) 
@@ -94,7 +94,7 @@ program test
   b=2
   d=3
 
-  !_dir _enter_data _din(a,b) _dout(c) _dinout(d) _async(1)
+  !_dir _enter_data _din(a,b,d) _dcreate(c) _async(1)
 
   !_dir _par _loop _gang _vector collapse(3) _kin(a,b) _kout(c) _kinout(d) _async(1)
   do k = 1 , nz
@@ -106,7 +106,7 @@ program test
     enddo
   enddo
 
-  !_dir _exit_data _ddelete(a,b,c,d) _async(1)
+  !_dir _exit_data _dout(c,d) _ddelete(a,b) _async(1)
 
   !_dir _wait(1)
 
