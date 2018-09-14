@@ -40,7 +40,7 @@
 #define _exit_data    target exit data
 
 #elif (defined _OPENMP_LOOP)
-
+!NOTE: This isn't functional yet
 #define _dir $
 #define _din(...)     
 #define _dout(...)    
