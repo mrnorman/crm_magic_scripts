@@ -41,7 +41,7 @@
 
 #elif (defined _OPENMP_LOOP)
 
-#define _dir $omp
+#define _dir $
 #define _din(...)     
 #define _dout(...)    
 #define _dcreate(...) 
@@ -54,7 +54,7 @@
 #define _vector       
 #define _async(i)     
 #define _wait(i)      
-#define _par          parallel do
+#define _par          omp parallel do
 #define _loop         
 #define _enter_data   
 #define _exit_data    
