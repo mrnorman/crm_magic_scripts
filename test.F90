@@ -39,25 +39,6 @@
 #define _enter_data   target enter data
 #define _exit_data    target exit data
 
-#elif (defined _OPENMP_LOOP)
-#define _dir          $omp parallel do
-#define _din(...)     
-#define _dout(...)    
-#define _dcreate(...) 
-#define _ddelete(...) 
-#define _kin(...)     
-#define _kout(...)    
-#define _kinout(...)  
-#define _kcreate(...) 
-#define _gang         
-#define _vector       
-#define _async(i)     
-#define _wait(i)      
-#define _par          
-#define _loop         
-#define _enter_data   
-#define _exit_data    
-
 #else
 
 #define _dir nodirective
