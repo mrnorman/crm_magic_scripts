@@ -1,7 +1,7 @@
 
 #if (defined _OPENACC)
 
-#define _dir $acc
+#define _dir          $acc
 #define _din(...)     copyin(__VA_ARGS__)
 #define _dout(...)    copyout(__VA_ARGS__)
 #define _dcreate(...) create(__VA_ARGS__)
@@ -21,7 +21,7 @@
 
 #elif (defined _OPENMP45)
 
-#define _dir $omp
+#define _dir          $omp
 #define _din(...)     map(to:__VA_ARGS__)      depend(out:__VA_ARGS__)
 #define _dout(...)    map(from:__VA_ARGS__)    depend(in:__VA_ARGS__)
 #define _dcreate(...) map(alloc:__VA_ARGS__)   depend(out:__VA_ARGS__)
@@ -29,7 +29,7 @@
 #define _kin(...)     map(to:__VA_ARGS__)      depend(in:__VA_ARGS__)
 #define _kout(...)    map(from:__VA_ARGS__)    depend(out:__VA_ARGS__)
 #define _kinout(...)  map(tofrom:__VA_ARGS__)  depend(inout:__VA_ARGS__)
-#define _kcreate(...) map(alloc:__VA_ARGS__) map(release:__VA_ARGS__)
+#define _kcreate(...) map(alloc:__VA_ARGS__)
 #define _gang         distribute
 #define _vector       parallel do
 #define _async(i)     nowait
@@ -40,8 +40,7 @@
 #define _exit_data    target exit data
 
 #elif (defined _OPENMP_LOOP)
-!NOTE: This isn't functional yet
-#define _dir $
+#define _dir          $omp parallel do
 #define _din(...)     
 #define _dout(...)    
 #define _dcreate(...) 
@@ -54,7 +53,7 @@
 #define _vector       
 #define _async(i)     
 #define _wait(i)      
-#define _par          omp parallel do
+#define _par          
 #define _loop         
 #define _enter_data   
 #define _exit_data    
